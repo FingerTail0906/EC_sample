@@ -1,0 +1,22 @@
+= render 'shared/item_header'
+
+.navi-bar
+  .navi-bar-wrap 
+    = link_to "メルカリ",root_path
+    = fa_icon "angle-right"
+    %span.navi-bar-wrap__item-name
+      
+.search-container
+  = render 'searchdetail_item'
+
+  .search-container-right
+    %p.search-container-right__title
+      新着商品
+    .search-container-right-wrap
+      = render partial:'search_item' , collection:@items ,as: :item
+
+= render 'shared/item_footer'
+
+= link_to new_item_path,class:"sell-btn" do
+  .sell 出品
+  =fa_icon "camera",class:"sell-icon"
